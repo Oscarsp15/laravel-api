@@ -11,17 +11,15 @@ use App\Http\Controllers\Api\studentController;
 
 Route::get('/students', [studentController::class,'index']);
 
-Route::post('/students', function(){
-    return 'Creando estudiantes';
-    });
+Route::post('/students', [studentController::class,'store']);
 
-Route::put('/students/{id}', function(){
-    return 'Actualizando estudiantes';
-    });
+Route::get('/students/{id}', [studentController::class,'show']);
 
-Route::delete('/students/{id}', function(){
-        return 'Eliminando estudiante';
-        });
+Route::put('/students/{id}',[studentController::class,'update']);
+
+Route::patch('/students/{id}',[studentController::class,'updatePartial']);
+
+Route::delete('/students/{id}',[studentController::class,'destroy']);
 
 
 
